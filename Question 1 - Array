@@ -1,0 +1,38 @@
+Question 1 from : GITHUB - JAVA Coding Questions link below 
+https://docs.google.com/document/d/1CDN2RRsn1jPoUnuUVSgJFEiwTYhzpAISBtkO7UpYAcs/edit?usp=sharing
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class A3 {
+    public static void main(String[] args) {
+        //find the third largest number from an array
+        Scanner sc = new Scanner (System.in);
+        int n = sc.nextInt();
+        int sumAbs = 0;
+        int sumAct = 0;
+
+        int [] arr = new int [n];
+        for (int i = 0; i<arr.length; i++){
+            arr[i] = sc.nextInt();
+            sumAbs += Math.abs(arr[i]);
+            sumAct += arr[i];
+        }
+        int c = 0;
+        int step = -1;
+        if (sumAbs == Math.abs(sumAct)){
+            System.out.print("true");
+        }
+        else if (sumAbs != Math.abs(sumAct)){
+            for (int i = 0; i<arr.length; i++){
+                if (arr[i] > 0){
+                    c += i;
+                    step++;
+                }
+            }
+            if ((step * (step +1))/2 == c){
+                System.out.print("true");
+            }
+        }
+    }
+}
