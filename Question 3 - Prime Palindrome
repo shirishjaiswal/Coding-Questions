@@ -1,0 +1,41 @@
+Question 3 - Prime Palindrome
+https://docs.google.com/document/d/1CDN2RRsn1jPoUnuUVSgJFEiwTYhzpAISBtkO7UpYAcs/edit?usp=sharing
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class A1 {
+    static public void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        if (isPalindrome(n) == n){
+            int rem = 0;
+            while (n > 0){
+                rem = n % 10;
+                System.out.print(isPrime(rem) + " ");
+                n /= 10;
+            }
+        }
+        else {
+            System.out.print("Not a palindrome");
+        }
+    }
+    static int isPalindrome (int n){
+        int rem = 0;
+        int pro = 0;
+        while (n > 0){
+            rem = n % 10;
+            pro = pro *10 + rem;
+            n /= 10;
+        }
+        return pro;
+    }
+    static String isPrime(int n){
+        if (n == 2 || n == 3 || n == 5 || n == 7){
+                return "Prime";
+        }
+        else {
+            return String.valueOf(n);
+        }
+    } 
+}
