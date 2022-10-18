@@ -1,0 +1,46 @@
+Question 5- Armstrong Sum Array from : GITHUB - JAVA Coding Questions link below 
+https://docs.google.com/document/d/1CDN2RRsn1jPoUnuUVSgJFEiwTYhzpAISBtkO7UpYAcs/edit?usp=sharing
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class A4 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner (System.in);
+        int n =sc.nextInt();
+        int [] arr = new int [n];
+        for (int i = 0; i<arr.length; i++){
+            arr[i] = sc.nextInt();
+        }
+        //153, 370, 371, 407
+        int sum = readArray(arr, 0) + readArray(arr, arr.length);
+        System.out.println(sum);
+    }
+    static int readArray(int [] arr, int start){
+        if (start == 0){
+            for(int i = 0; i<arr.length; i++){
+                if (isArmstrong(arr[i]) == arr[i]){
+                    return arr[i];
+                }
+            }
+        }
+        else {
+            for(int i = start-1; i>=0; i--){
+                if (isArmstrong(arr[i]) == arr[i]){
+                    return arr[i];
+                }
+            }
+        }
+        return -1;
+    }
+    static int isArmstrong(int i){
+        int rem = 0;
+        int sum = 0;
+        while (i > 0){
+            rem = i % 10;
+            sum = sum + (int)Math.pow(rem, 3);
+            i = i/10;
+        }
+        return sum;
+    }
+}
