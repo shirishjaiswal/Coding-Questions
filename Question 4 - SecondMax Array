@@ -1,0 +1,27 @@
+Question 4 - SecondMax Array from : GITHUB - JAVA Coding Questions link below 
+https://docs.google.com/document/d/1CDN2RRsn1jPoUnuUVSgJFEiwTYhzpAISBtkO7UpYAcs/edit?usp=sharing
+
+import java.util.*;
+public class A2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int [n];
+        for (int i = 0; i<arr.length; i++){
+            arr[i] = sc.nextInt();
+        }
+        
+        int fmax = Integer.MIN_VALUE;
+        int smax = 0;
+        for (int i = 0; i<arr.length; i++) {
+            if (arr[i] > fmax){
+                smax = fmax;
+                fmax = arr[i];
+            }
+            else if (arr[i] > smax){
+                smax = arr[i];
+            }
+        }
+        System.out.println(smax);
+    }
+}
